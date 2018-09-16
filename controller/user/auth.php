@@ -28,8 +28,10 @@
                     $user->email = $dbo->email;
                     $user->name = $dbo->name;
                     $user->role = $dbo->role;
+                    $user->secure_token = encodeJWT($user);
                     
                     echo responseEncoder(true, 200, "Success", $user);
+                    insertRecord($db, 0, $user->id);
                 } else{
                     echo responseEncoder(false, 401, "Password incorrect",(object)[]);
                 }

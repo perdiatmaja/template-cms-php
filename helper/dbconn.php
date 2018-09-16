@@ -51,4 +51,19 @@
         return $data;
     }
 
+    function insertRecord($con, $type, $user_id){
+        $server_address = "";
+        if (isset($_SERVER['SERVER_ADDR'])){
+            $server_address = $_SERVER['SERVER_ADDR'];
+        }
+        $date = (new \DateTime())->format('Y-m-d H:i:s');
+        $query = "insert into log_data values(uuid(), 
+        '$type', 
+        '$user_id', 
+        '$server_address', 
+        '$date')";
+
+        executeQuery($con, $query);
+    }
+
 ?>
