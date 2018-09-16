@@ -1,5 +1,7 @@
 <?php
+    require_once "forbidden-rules.php";
     require "firebase-jwt/JWT.php";
+    
     use \Firebase\JWT\JWT;
 
     function encodeJWT($payload){

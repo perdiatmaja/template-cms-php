@@ -1,4 +1,6 @@
 <?php
+    require_once "forbidden-rules.php";
+    
     function encrypt($str){
         $str_arr = str_split($str);
         $dec_str;

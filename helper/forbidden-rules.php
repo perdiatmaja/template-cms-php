@@ -7,9 +7,10 @@
         $name = str_replace(".php", "", $name);
     }
 
-    $forbidden_files = array("response-encode", "rules", "file-list", "get-url",
+    $forbidden_files = 
+    array("response-encode", "rules", "file-list", "get-url",
     "forbidden-rules", "dbconn", "params-parser",
-    "file-access-rules");
+    "file-access-rules", "get-auth", "endec", "token");
     
     if (in_array($name, $forbidden_files)){
         header('Content-type: application/json');

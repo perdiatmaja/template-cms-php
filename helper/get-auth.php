@@ -1,4 +1,6 @@
 <?php
+    require_once "forbidden-rules.php";
+
     if (isset($_SERVER["HTTP_AUTHORIZATION"])){
         try{
             $decode = decodeJWT($_SERVER["HTTP_AUTHORIZATION"]);
