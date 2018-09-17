@@ -9,11 +9,11 @@
             $index = $i-1;
             $dec_str = ord($str_arr[$index]);
 
-            if (($dec_str >= 64 + 1) && ($dec_str <= 64 + 8)){
+            if (($dec_str >= 64 + 1) && ($dec_str <= 64 + 7)){
                 $dec_str = $dec_str+3;
                 $str_arr[$index] = chr($dec_str);
             }
-            else if ($dec_str >= 64 + 9 && $dec_str <= 64 + 11){
+            else if ($dec_str >= 64 + 8 && $dec_str <= 64 + 11){
                 // echo chr($dec_str)." ".$dec_str."\n";
                 $dec_str = $dec_str+10;
                 $str_arr[$index] = chr($dec_str);
@@ -27,8 +27,10 @@
                 $str_arr[$index] = chr($dec_str);
             }
             else if ($dec_str >= 64 + 19 && $dec_str <= 64 + 21){
-                $dec_str = $dec_str-3;
+                
+                $dec_str = $dec_str-4;
                 $str_arr[$index] = chr($dec_str);
+
             } else if ($dec_str >= 64 + 22 && $dec_str <= 64 + 24){
                 $dec_str = $dec_str+2;
                 $str_arr[$index] = chr($dec_str);
@@ -90,12 +92,12 @@
                 $dec_str = $dec_str + 1;
                 $str_arr[$index]=chr($dec_str);
             }
-            else if ($dec_str >= 64 + 15 && $dec_str <= 64 + 18)
+            else if ($dec_str >= 64 + 15 && $dec_str <= 64 + 17)
             {
-                $dec_str = $dec_str +3;
+                $dec_str = $dec_str +4;
                 $str_arr[$index] = chr($dec_str);
             }
-            else if ($dec_str >= 64 + 19 && $dec_str <= 64 + 21)
+            else if ($dec_str >= 64 + 18 && $dec_str <= 64 + 21)
             {
                 $dec_str = $dec_str - 10;
                 $str_arr[$index] = chr($dec_str);

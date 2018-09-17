@@ -1,12 +1,12 @@
 <?php
     require "helper/response-encode.php";
-    require "helper/endec.php";
+    // require "helper/endec.php";
 
-    $enc = encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    echo $enc."\n";
-    echo decrypt($enc)."\n";
+    // $enc = encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    // echo $enc."\n";
+    // echo decrypt($enc)."\n";
 
-    die;
+    // die;
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Authorization, Accept");
     

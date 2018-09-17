@@ -3,7 +3,12 @@
 
     if (isset($_SERVER["HTTP_AUTHORIZATION"])){
         try{
-            $decode = decodeJWT($_SERVER["HTTP_AUTHORIZATION"]);
+            $auth_token = $_SERVER["HTTP_AUTHORIZATION"];
+            if (strlen($auth_token)%3 !== 0){
+                die(responseEncoder(true, 400, "Invalid Token", null));
+            }
+            $auth_token = decrypt(removeKey($auth_token, "atmaja02294"));
+            $decode = decodeJWT($auth_token);
 
             checkToken($db, $decode->data);
         } catch (Exception $e){

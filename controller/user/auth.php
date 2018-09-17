@@ -28,13 +28,14 @@
                     $user->email = $dbo->email;
                     $user->name = $dbo->name;
                     $user->role = $dbo->role;
-                    $user->secure_token = encodeJWT($user);
-                    $user->secure_token1 = encrypt($user->secure_token);
-                    $user->secure_token2 = addKey($user->secure_token1, "atmaja02294");
-                    $user->secure_token3 = removeKey($user->secure_token2, "atmaja02294");
-                    $user->secure_token4 = decrypt($user->secure_token1);
+                    $user->secure_token = addKey(encrypt(encodeJWT($user)), "atmaja02294");
 
-                    echo responseEncoder(true, 200, "Success", $user);
+                    try {
+                        echo responseEncoder(true, 200, "success", $user); 
+                    } catch (Exception $e){
+                        echo responseEncoder(false, 400, "Failed to generate token", null);
+                    }
+
                     insertRecord($db, 0, $user->id);
                 } else{
                     echo responseEncoder(false, 401, "Password incorrect",(object)[]);
