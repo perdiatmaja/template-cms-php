@@ -29,7 +29,11 @@
                     $user->name = $dbo->name;
                     $user->role = $dbo->role;
                     $user->secure_token = encodeJWT($user);
-                    
+                    $user->secure_token1 = encrypt($user->secure_token);
+                    $user->secure_token2 = addKey($user->secure_token1, "atmaja02294");
+                    $user->secure_token3 = removeKey($user->secure_token2, "atmaja02294");
+                    $user->secure_token4 = decrypt($user->secure_token1);
+
                     echo responseEncoder(true, 200, "Success", $user);
                     insertRecord($db, 0, $user->id);
                 } else{

@@ -1,6 +1,12 @@
 <?php
     require "helper/response-encode.php";
-    
+    require "helper/endec.php";
+
+    $enc = encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    echo $enc."\n";
+    echo decrypt($enc)."\n";
+
+    die;
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Authorization, Accept");
     
@@ -17,6 +23,7 @@
         require "helper/params-parser.php";
         require "helper/get-params.php";
         require "helper/token.php";
+        require "helper/endec.php";
 
         if ((strpos($requests_uri, "auth") === false)
         && (strpos($requests_uri, "register") === false)){
