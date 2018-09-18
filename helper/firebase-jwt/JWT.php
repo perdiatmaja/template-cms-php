@@ -1,6 +1,10 @@
 <?php
-
 namespace Firebase\JWT;
+
+require_once "BeforeValidException.php";
+require_once "ExpiredException.php";
+require_once "SignatureInvalidException.php";
+
 use \DomainException;
 use \InvalidArgumentException;
 use \UnexpectedValueException;
@@ -109,8 +113,8 @@ class JWT
 
         // Check the signature
         if (!static::verify("$headb64.$bodyb64", $sig, $key, $header->alg)) {
-            throw new UnexpectedValueException('Signature verification failed');
-            // throw new SignatureInvalidException('Signature verification failed');
+            // throw new UnexpectedValueException('Signature verification failed');
+            throw new SignatureInvalidException('Signature verification failed');
         }
 
         // Check if the nbf if it is defined. This is the time that the

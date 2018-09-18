@@ -5,12 +5,16 @@
     use \Firebase\JWT\JWT;
 
     function encodeJWT($payload){
+        $iat = new DateTime();
+        $nbf = new DateTime();
+        
+        $nbf->add(new DateInterval('P3D'));
+
         $key = hash256("atmaja02294");
         $token = array(
             "data" => $payload,
-            "iss" => "http://example.org",
-            "iat" => 1356999524,
-            "nbf" => 1357000000
+            "iat" => $iat->getTimestamp(),
+            "nbf" => $nbf->getTimestamp()
         );
 
         $jwt = JWT::encode($token, $key);
@@ -21,6 +25,7 @@
     function decodeJWT($jwt){
         $key = hash256("atmaja02294");
 
+        JWT::$leeway = 600000;
         $decoded = JWT::decode($jwt, $key, array('HS256'));
 
         return $decoded;

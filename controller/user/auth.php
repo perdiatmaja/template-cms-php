@@ -16,7 +16,7 @@
 
     try{
         $query = "select * from user where email='"
-        .get_params($params, "email")."' limit 1";
+        .get_params($params, "email")."' AND is_delete=0 limit 1";
         
         if ($result = executeQuery($db, $query)){
             if ($result->num_rows > 0){
@@ -29,6 +29,7 @@
                     $user->name = $dbo->name;
                     $user->role = $dbo->role;
                     $user->secure_token = addKey(encrypt(encodeJWT($user)), "atmaja02294");
+                    // $user->secure_token = encodeJWT($user);
 
                     try {
                         echo responseEncoder(true, 200, "success", $user); 
