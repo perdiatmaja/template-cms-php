@@ -247,7 +247,7 @@
             $i = 0;
             while ($i < $str_len) {
                 $str_int = (int)$str_arr[$i];
-                $key_int = (int)ord($key_arr[$j]);
+                $key_int = (int)ord($key_arr[$i]);
                 $key_diff = $str_int > $key_int? $str_int - $key_int:$key_int-$str_int;
                 
                 $result .= chr($key_diff);

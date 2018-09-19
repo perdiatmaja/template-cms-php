@@ -1,8 +1,9 @@
 <?php
-    require "helper/response-encode.php";
-    
     header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Authorization, Accept");
+    header("Access-Control-Allow-Headers: Content-type, Authorization");
+    header('Content-type: application/json;');
+
+    require "helper/response-encode.php";
     
     $host = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER['HTTP_HOST'];
     $main_path = dirname(__FILE__); 
@@ -18,6 +19,10 @@
         require "helper/get-params.php";
         require "helper/token.php";
         require "helper/endec.php";
+
+        if (strpos($requests_uri, "upload")) {
+            require "file-upload.php";
+        }
 
         if ((strpos($requests_uri, "auth") === false)
         && (strpos($requests_uri, "register") === false)){

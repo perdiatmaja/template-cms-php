@@ -12,8 +12,8 @@
 
             checkToken($db, $decode);
         } catch (Exception $e){
-            // die(responseEncoder(true, 400, "Invalid Token", null));
-            die(responseEncoder(true, 400, $e->getMessage(), null));
+            die(responseEncoder(true, 400, "Invalid Token", null));
+            // die(responseEncoder(true, 400, $e->getMessage(), null));
         }
     } else {
         die(responseEncoder(false, 400, "No Authorization", null));

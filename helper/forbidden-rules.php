@@ -7,12 +7,20 @@
         $name = str_replace(".php", "", $name);
     }
 
-    $forbidden_files = 
-    array("response-encode", "rules", "file-list", "get-url",
-    "forbidden-rules", "dbconn", "params-parser",
-    "file-access-rules", "get-auth", "endec", "token");
+    // $forbidden_files = 
+    // array("response-encode",
+    // "rules", 
+    // "file-list", 
+    // "get-url",
+    // "forbidden-rules", 
+    // "dbconn", 
+    // "params-parser",
+    // "file-access-rules", 
+    // "get-auth", 
+    // "endec", "token", "file-upload");
     
-    if (in_array($name, $forbidden_files)){
+    // if (in_array($name, $forbidden_files)){
+    if (strpos($requests_uri, "helper")) {
         header('Content-type: application/json');
         $response = array(
             "success" => false,
