@@ -18,15 +18,15 @@
         }
     }
     
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST' ||
-    strpos($user_agent, 'PostmanRuntime') !== false
-    || $is_origin_allowed === false) {
-        $response = array(
-            "success" => false,
-            "code"=> 410,
-            "message" => "Method not allowed",
-            "data" => array()
-        );
-        die(json_encode($response));
-    }
+    // if ($_SERVER['REQUEST_METHOD'] !== 'POST' ||
+    // strpos($user_agent, 'PostmanRuntime') !== false
+    // || $is_origin_allowed === false) {
+    //     $response = array(
+    //         "success" => false,
+    //         "code"=> 410,
+    //         "message" => "Method not allowed",
+    //         "data" => array()
+    //     );
+    //     die(json_encode($response));
+    // }
 ?>
