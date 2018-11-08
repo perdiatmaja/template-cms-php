@@ -21,7 +21,7 @@ try {
     . (new \DateTime())->format('Y-m-d H:i:s') . "');";
 
     if (executeQuery($db, $query)) {
-        echo responseEncoder(true, 200, "success", (object) []);
+        echo responseEncoder(true, 200, "Workshop added", (object) []);
     } else {
         throw new Exception($this->mysqli->error);
     }
