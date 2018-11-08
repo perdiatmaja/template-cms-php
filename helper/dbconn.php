@@ -6,7 +6,7 @@
 
     $db;
     $server = '167.99.69.199';
-    $database = 'cms_school';
+    $database = 'veshelp';
     $username = 'perdiatmaja';
     $password = 'atmaja02294';
 
