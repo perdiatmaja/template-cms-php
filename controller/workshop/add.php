@@ -15,7 +15,7 @@ if (strpos($direct_uri, $scriptname)) {
 
 try {
     $query = "insert into veshelp.workshop values(uuid(), '"
-    . get_params($params, "name") . "', '', '"
+    . get_params($params, "name") . "', null, '"
     . get_params($params, "lat") . "','"
     . get_params($params, "lon") . "','0','"
     . (new \DateTime())->format('Y-m-d H:i:s') . "');";
