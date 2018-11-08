@@ -8,7 +8,7 @@
             }
             return $params->$key;
         } catch(Exception $e) {
-            die(responseEncoder(false, 400, $e->getMessage(), array()));
+            die(responseEncoder(false, 400, $e->getMessage(), (object)[]));
         }
     }
 ?>

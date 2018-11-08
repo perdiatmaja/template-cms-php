@@ -26,7 +26,7 @@
 
         if ((strpos($requests_uri, "auth") === false)
         && (strpos($requests_uri, "register") === false)){
-            require "helper/get-auth.php";
+            // require "helper/get-auth.php";
         }
         
         require $filename;
